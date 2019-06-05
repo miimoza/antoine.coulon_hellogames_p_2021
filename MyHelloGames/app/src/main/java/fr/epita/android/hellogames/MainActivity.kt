@@ -9,6 +9,8 @@ class MainActivity : AppCompatActivity(), ImageFragment.InteractionListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Fragment Transcription
+
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         val imageFragment = ImageFragment()
         fragmentTransaction.add(R.id.main_container, imageFragment)
@@ -16,8 +18,11 @@ class MainActivity : AppCompatActivity(), ImageFragment.InteractionListener {
     }
 
     override fun imageWasClicked(i: Int) {
+
+        // When the user clik on the image
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         val detailedFragment = DetailedFragment(i)
+
         fragmentTransaction.replace(R.id.main_container, detailedFragment)
         fragmentTransaction.commit()
     }

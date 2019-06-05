@@ -11,4 +11,5 @@ interface WSInterface {
 
     @GET("api/game/details")
     fun gameDetail(@Query("game_id") game_id : Int): Call<TODO>
+
 }

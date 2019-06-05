@@ -50,11 +50,20 @@ class DetailedFragment(private val i: Int) : Fragment() {
 
                     if (responseData != null) {
                         Glide.with(this@DetailedFragment).load(responseData.picture).override(160, 160).into(gameImage)
+
+                        // Type
+                        gameType.text = responseData.type
+
+                        // Numbers of Players
+                        gameNbPlayers.text = responseData.players.toString()
+
+                        // Year
+                        gameYear.text = responseData.year.toString()
+
+                        // Name
                         gameName.text = responseData.name
                         gameDescription.text = responseData.description_en
-                        gameType.text = responseData.type
-                        gameNbPlayers.text = responseData.players.toString()
-                        gameYear.text = responseData.year.toString()
+
 
                         gameKnowMore.setOnClickListener {
                             val uriUrl = Uri.parse(responseData.url)
